@@ -153,3 +153,98 @@ function findAverage(array) {
   }, 0);
   return sum / array.length;
 }
+
+// Завершіть функцію, яка приймає параметр рядка та скасовує кожне слово в рядку. Усі пробіли в рядку мають бути збережені.
+
+// Приклади
+// "This is an example!" ==> "sihT si na !elpmaxe"
+// "double  spaces"      ==> "elbuod  secaps"
+
+function reverseWords(str) {
+  return str
+    .split(" ")
+    .map((word) => word.split("").reverse().join(""))
+    .join(" ");
+}
+
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+// Examples
+// highAndLow("1 2 3 4 5"); // return "5 1"
+// highAndLow("1 2 -3 4 5"); // return "5 -3"
+// highAndLow("1 9 3 4 -5"); // return "9 -5"
+// Notes
+// All numbers are valid Int32, no need to validate them.
+// There will always be at least one number in the input string.
+// Output string must be two numbers separated by a single space, and highest number is first.
+function highAndLow(numbers) {
+  const nums = numbers.split(" ").map(Number);
+  const max = Math.max(...nums);
+  const min = Math.min(...nums);
+  return `${max} ${min}`;
+}
+
+// Grade book
+// Complete the function so that it finds the average of the three scores passed to it and returns the letter value associated with that grade.
+
+// Numerical Score	Letter Grade
+// 90 <= score <= 100	'A'
+// 80 <= score < 90	'B'
+// 70 <= score < 80	'C'
+// 60 <= score < 70	'D'
+// 0 <= score < 60	'F'
+// Tested values are all between 0 and 100. Theres is no need to check for negative values or values greater than 100.
+
+function getGrade(s1, s2, s3) {
+  const averageValue = (s1 + s2 + s3) / 3;
+
+  if (averageValue >= 90 && averageValue <= 100) {
+    return "A";
+  } else if (averageValue >= 80 && averageValue < 90) {
+    return "B";
+  } else if (averageValue >= 70 && averageValue < 80) {
+    return "C";
+  } else if (averageValue >= 60 && averageValue < 70) {
+    return "D";
+  } else if (averageValue >= 0 && averageValue < 60) {
+    return "F";
+  }
+}
+
+// The museum of incredibly dull things
+// The museum of incredibly dull things wants to get rid of some exhibits. Miriam, the interior architect, comes up with a plan to remove the most boring exhibits. She gives them a rating, and then removes the one with the lowest rating.
+
+// However, just as she finished rating all exhibits, she's off to an important fair, so she asks you to write a program that tells her the ratings of the exhibits after removing the lowest one. Fair enough.
+
+// Task
+// Given an array of integers, remove the smallest value. Do not mutate the original array/list. If there are multiple elements with the same value, remove the one with the lowest index. If you get an empty array/list, return an empty array/list.
+
+// Don't change the order of the elements that are left.
+
+// Examples
+// * Input: [1,2,3,4,5], output = [2,3,4,5]
+// * Input: [5,3,2,1,4], output = [5,3,2,4]
+// * Input: [2,2,1,2,1], output = [2,2,2,1]
+function removeSmallest(numbers) {
+  if (numbers.length === 0) return [];
+
+  const smallNum = numbers.indexOf(Math.min(...numbers));
+  return numbers.filter((_, i) => i !== smallNum);
+}
+
+// Introduction
+// The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+
+// Task
+// Given a year, return the century it is in.
+
+// Examples
+// 1705 --> 18
+// 1900 --> 19
+// 1601 --> 17
+// 2000 --> 20
+// 2742 --> 28
+// Note: this kata uses strict construction as shown in the description and the examples, you can read more about it here
+function century(year) {
+  return Math.ceil(year / 100);
+}
