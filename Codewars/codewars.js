@@ -248,3 +248,125 @@ function removeSmallest(numbers) {
 function century(year) {
   return Math.ceil(year / 100);
 }
+
+// Rock Paper Scissors
+// Let's play! You have to return which player won! In case of a draw return Draw!.
+
+// Examples(Input1, Input2 --> Output):
+
+// "scissors", "paper" --> "Player 1 won!"
+// "scissors", "rock" --> "Player 2 won!"
+// "paper", "paper" --> "Draw!"
+const rps = (p1, p2) => {
+  if (p1 === p2) {
+    return "Draw!";
+  }
+
+  if (
+    (p1 === "rock" && p2 === "scissors") ||
+    (p1 === "scissors" && p2 === "paper") ||
+    (p1 === "paper" && p2 === "rock")
+  ) {
+    return "Player 1 won!";
+  } else {
+    return "Player 2 won!";
+  }
+};
+
+// After a hard quarter in the office you decide to get some rest on a vacation. So you will book a flight for you and your girlfriend and try to leave all the mess behind you.
+
+// You will need a rental car in order for you to get around in your vacation. The manager of the car rental makes you some good offers.
+
+// Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+
+// Write a code that gives out the total amount for different days(d).
+function rentalCarCost(d) {
+  let carRental = 0;
+  if (d < 3) {
+    carRental = d * 40;
+  } else if (d >= 3 && d < 7) {
+    carRental = d * 40 - 20;
+  } else if (d >= 7) {
+    carRental = d * 40 - 50;
+  }
+  return carRental;
+}
+console.log(rentalCarCost(4));
+
+// A square of squares
+// You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+
+// However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+
+// Task
+// Given an integral number, determine if it's a square number:
+
+// In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+
+// The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+
+// Examples
+// -1  =>  false
+//  0  =>  true
+//  3  =>  false
+//  4  =>  true
+// 25  =>  true
+// 26  =>  false
+var isSquare = function (n) {
+  if (n < 0) return false;
+  const sqrt = Math.sqrt(n);
+  return Number.isInteger(sqrt);
+};
+
+// Story
+// Ben has a very simple idea to make some profit: he buys something and sells it again. Of course, this wouldn't give him any profit at all if he was simply to buy and sell it at the same price. Instead, he's going to buy it for the lowest possible price and sell it at the highest.
+
+// Task
+// Write a function that returns both the minimum and maximum number of the given list/array.
+
+// Examples (Input --> Output)
+// [1,2,3,4,5] --> [1,5]
+// [2334454,5] --> [5,2334454]
+// [1]         --> [1,1]
+// Remarks
+// All arrays or lists will always have at least one element, so you don't need to check the length. Also, your function will always get an array or a list, you don't have to check for null, undefined or similar.
+function minMax(arr) {
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  return [min, max];
+}
+
+// Clock shows h hours, m minutes and s seconds after midnight.
+
+// Your task is to write a function which returns the time since midnight in milliseconds.
+
+// Example:
+// h = 0
+// m = 1
+// s = 1
+
+// result = 61000
+// Input constraints:
+
+// 0 <= h <= 23
+// 0 <= m <= 59
+// 0 <= s <= 59
+function past(h, m, s) {
+  const millisecondsInSecond = 1000;
+  const millisecondsInMinute = 60 * millisecondsInSecond;
+  const millisecondsInHour = 60 * millisecondsInMinute;
+
+  return (
+    h * millisecondsInHour + m * millisecondsInMinute + s * millisecondsInSecond
+  );
+}
+
+// Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+
+// Example:
+// ["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
+
+// None of the arrays will be empty, so you don't have to worry about that!
+function removeEveryOther(arr) {
+  return arr.filter((_, index) => index % 2 === 0);
+}
