@@ -370,3 +370,74 @@ function past(h, m, s) {
 function removeEveryOther(arr) {
   return arr.filter((_, index) => index % 2 === 0);
 }
+
+// Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+
+// Use conditionals to return the proper message:
+
+// case	return
+// name equals owner	'Hello boss'
+// otherwise	'Hello guest'
+function greet(name, owner) {
+  let hello = "";
+  if (name === owner) {
+    hello = "Hello boss";
+  } else {
+    hello = "Hello guest";
+  }
+  return hello;
+}
+
+// Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+
+// For example,
+
+// [true,  true,  true,  false,
+//   true,  true,  true,  true ,
+//   true,  false, true,  false,
+//   true,  false, false, true ,
+//   true,  true,  true,  true ,
+//   false, false, true,  true]
+// The correct answer would be 17.
+
+// Hint: Don't forget to check for bad values like null/undefined
+function countSheeps(sheep) {
+  const sheeps = sheep.filter((tr) => tr === true);
+  return sheeps.length;
+}
+
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+// The input string will only consist of lower case letters and/or spaces.
+function getCount(str) {
+  const vowels = "aeiou";
+  return str.split("").filter((letter) => vowels.includes(letter)).length;
+}
+
+// Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+// Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+// Create a function which translates a given DNA string into RNA.
+
+// For example:
+
+// "GCAT"  =>  "GCAU"
+// The input string can be of arbitrary length - in particular, it may be empty. All input is guaranteed to be valid, i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'.
+function DNAtoRNA(dna) {
+  return dna.replace(/T/g, "U");
+}
+
+// Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+
+// It should remove all values from list a, which are present in list b keeping their order.
+
+// arrayDiff([1,2],[1]) == [2]
+// If a value is present in b, all of its occurrences must be removed from the other:
+
+// arrayDiff([1,2,2,2,3],[2]) == [1,3]
+function arrayDiff(a, b) {
+  return a.filter((element) => !b.includes(element));
+}
