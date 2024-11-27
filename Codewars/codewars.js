@@ -441,3 +441,77 @@ function DNAtoRNA(dna) {
 function arrayDiff(a, b) {
   return a.filter((element) => !b.includes(element));
 }
+
+// Our football team has finished the championship.
+
+// Our team's match results are recorded in a collection of strings. Each match is represented by a string in the format "x:y", where x is our team's score and y is our opponents score.
+
+// For example: ["3:1", "2:2", "0:1", ...]
+
+// Points are awarded for each match as follows:
+
+// if x > y: 3 points (win)
+// if x < y: 0 points (loss)
+// if x = y: 1 point (tie)
+// We need to write a function that takes this collection and returns the number of points our team (x) got in the championship by the rules given above.
+
+// Notes:
+
+// our team always plays 10 matches in the championship
+// 0 <= x <= 4
+// 0 <= y <= 4
+function points(games) {
+  return games.reduce((total, game) => {
+    const [x, y] = game.split(":").map(Number);
+    if (x > y) {
+      return total + 3;
+    } else if (x === y) {
+      return total + 1;
+    } else {
+      return total;
+    }
+  }, 0);
+}
+
+// Complete the solution so that the function will break up camel casing, using a space between words.
+
+// Example
+// "camelCasing"  =>  "camel Casing"
+// "identifier"   =>  "identifier"
+// ""             =>  ""
+function solution(string) {
+  return string
+    .split("")
+    .map((char) =>
+      char === char.toUpperCase() && char !== char.toLowerCase()
+        ? " " + char
+        : char
+    )
+    .join("");
+}
+
+// Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+function evenOrOdd(number) {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+
+// Simple, given a string of words, return the length of the shortest word(s).
+
+// String will never be empty and you do not need to account for different data types.
+
+function findShort(s) {
+  return s
+    .split(" ")
+    .reduce((shortest, word) => Math.min(shortest, word.length), Infinity);
+}
+
+// Nathan loves cycling.
+// Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+// You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+// For example:
+// time = 3 ----> litres = 1
+// time = 6.7---> litres = 3
+// time = 11.8--> litres = 5
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
