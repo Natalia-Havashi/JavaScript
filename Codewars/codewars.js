@@ -515,3 +515,63 @@ function findShort(s) {
 function litres(time) {
   return Math.floor(time * 0.5);
 }
+// Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+// [1, 2, 3, 4, 5] --> [-1, -2, -3, -4, -5]
+// [1, -2, 3, -4, 5] --> [-1, 2, -3, 4, -5]
+// [] --> []
+// You can assume that all values are integers. Do not mutate the input array.
+function invert(array) {
+  return array.map((num) => -num);
+}
+
+// Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+// Examples: (Input --> Output)
+
+// [] --> []
+// ["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
+var number = function (array) {
+  return array.map((str, index) => `${index + 1}: ${str}`);
+};
+
+// Description:
+// This time no story, no theory. The examples below show you how to write function accum:
+
+// Examples:
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
+function accum(s) {
+  return s
+    .split("")
+    .map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index))
+    .join("-");
+}
+
+// Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.
+
+// For example: month 2 (February), is part of the first quarter; month 6 (June), is part of the second quarter; and month 11 (November), is part of the fourth quarter.
+
+// Constraint:
+
+// 1 <= month <= 12
+const quarterOf = (month) => {
+  return Math.ceil(month / 3);
+};
+
+// Description:
+// Convert number to reversed array of digits
+// Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+// Example(Input => Output):
+// 35231 => [1,3,2,5,3]
+// 0 => [0]
+function digitize(n) {
+  return String(n).split("").reverse().map(Number);
+}
