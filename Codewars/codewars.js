@@ -575,3 +575,99 @@ const quarterOf = (month) => {
 function digitize(n) {
   return String(n).split("").reverse().map(Number);
 }
+// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string (alphabetical ascending), the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+// Examples:
+// a = "xyaabbbccccdefww"
+// b = "xxxxyyyyabklmopq"
+// longest(a, b) -> "abcdefklmopqwxy"
+
+// a = "abcdefghijklmnopqrstuvwxyz"
+// longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+function longest(s1, s2) {
+  return [...new Set([...s1, ...s2])].sort().join("");
+}
+// Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+// Return your answer as a number.
+function sumMix(x) {
+  const num = x.map(Number);
+  return num.reduce((acc, n) => acc + n, 0);
+}
+// Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+
+// Rules for a smiling face:
+
+// Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+// A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+// Every smiling face must have a smiling mouth that should be marked with either ) or D
+// No additional characters are allowed except for those mentioned.
+
+// Valid smiley face examples: :) :D ;-D :~)
+// Invalid smiley faces: ;( :> :} :]
+
+// Example
+// countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+// Note
+// In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
+function countSmileys(arr) {
+  let count = 0;
+
+  for (let face of arr) {
+    if (
+      (face[0] === ":" || face[0] === ";") &&
+      (face[1] === ")" ||
+        face[1] === "D" ||
+        ((face[1] === "-" || face[1] === "~") &&
+          (face[2] === ")" || face[2] === "D")))
+    ) {
+      count++;
+    }
+  }
+
+  return count;
+}
+// Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+
+// [Make sure you type the exact thing I wrote or the program may not execute properly]
+function greet(name) {
+  return `Hello, ${name} how are you doing today?`;
+}
+// When documents (especially pretty old ones written with a typewriter), are digitised character recognition softwares often make mistakes.
+
+// Your task is correct the errors in the digitised text. You only have to handle the following mistakes:
+
+// S is misinterpreted as 5
+// O is misinterpreted as 0
+// I is misinterpreted as 1
+// The test cases contain numbers only by mistake.
+function correct(string) {
+  return string
+    .split("")
+    .map((str) => {
+      if (str === "5") {
+        return "S";
+      } else if (str === "0") {
+        return "O";
+      } else if (str === "1") {
+        return "I";
+      } else {
+        return str;
+      }
+    })
+    .join("");
+}
+// You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+
+// Complete the method which accepts such an array, and returns that single different number.
+
+// The input array will always be valid! (odd-length >= 3)
+
+// Examples
+// [1, 1, 2] ==> 2
+// [17, 17, 3, 17, 17, 17, 17] ==> 3
+function stray(numbers) {
+  return numbers.reduce((acc, num) => acc ^ num, 0);
+}
