@@ -671,3 +671,132 @@ function correct(string) {
 function stray(numbers) {
   return numbers.reduce((acc, num) => acc ^ num, 0);
 }
+// You ask a small girl,"How old are you?" She always says, "x years old", where x is a random number between 0 and 9.
+
+// Write a program that returns the girl's age (0-9) as an integer.
+
+// Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
+function getAge(inputString) {
+  return parseInt(inputString[0]);
+}
+// Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+// For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)
+
+// Example #2: An input of 765 will/should return 493625 because 72 is 49, 62 is 36, and 52 is 25. (49-36-25)
+
+// Note: The function accepts an integer and returns an integer.
+
+// Happy Coding!
+function squareDigits(num) {
+  return +num
+    .toString()
+    .split("")
+    .map((n) => Math.pow(Number(n), 2))
+    .join("");
+}
+// Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+
+// Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+// If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
+
+// Examples
+// "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+// "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+// ""  -->  ""
+function order(words) {
+  const str = words.split(",");
+  return str;
+}
+const result = order("is2 Thi1s T4est 3a");
+console.log(result);
+
+// Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+
+// For example:
+
+// a = 1
+// b = 4
+// --> [1, 2, 3, 4]
+function between(a, b) {
+  let result = [];
+  for (let i = a; i <= b; i++) {
+    result.push(i);
+  }
+  return result;
+}
+// Make a program that filters a list of strings and returns a list with only your friends name in it.
+
+// If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+
+// Input = ["Ryan", "Kieran", "Jason", "Yous"]
+// Output = ["Ryan", "Yous"]
+
+// Input = ["Peter", "Stephen", "Joe"]
+// Output = []
+// Input strings will only contain letters.
+// Note: keep the original order of the names in the output.
+function friend(friends) {
+  return friends.filter((friend) => friend.length === 4);
+}
+// Given an array of integers, return a new array with each value doubled.
+
+// For example:
+
+// [1, 2, 3] --> [2, 4, 6]
+function maps(x) {
+  return x.map((n) => n * 2);
+}
+// When provided with a number between 0-9, return it in words. Note that the input is guaranteed to be within the range of 0-9.
+
+// Input: 1
+
+// Output: "One".
+
+// If your language supports it, try using a switch statement.
+function switchItUp(number) {
+  switch (number) {
+    case 0:
+      return "Zero";
+    case 1:
+      return "One";
+    case 2:
+      return "Two";
+    case 3:
+      return "Three";
+    case 4:
+      return "Four";
+    case 5:
+      return "Five";
+    case 6:
+      return "Six";
+    case 7:
+      return "Seven";
+    case 8:
+      return "Eight";
+    case 9:
+      return "Nine";
+    default:
+      return "Invalid input";
+  }
+}
+
+// The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+
+// What if the string is empty? Then the result should be empty object literal, {}.
+function count(string) {
+  const count = {};
+
+  for (let i = 0; i < string.length; i++) {
+    const str = string[i];
+
+    if (count[str]) {
+      count[str]++;
+    } else {
+      count[str] = 1;
+    }
+  }
+
+  return count;
+}
