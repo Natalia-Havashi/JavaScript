@@ -800,3 +800,64 @@ function count(string) {
 
   return count;
 }
+// Implement a function which convert the given boolean value into its string representation.
+
+// Note: Only valid inputs will be given.
+function booleanToString(b) {
+  return b ? "true" : "false";
+}
+// The cockroach is one of the fastest insects. Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).
+function cockroachSpeed(s) {
+  return Math.floor((s * 1000 * 100) / 3600);
+}
+// Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+
+// Examples (Input -> Output):
+// * "String"      -> "SSttrriinngg"
+// * "Hello World" -> "HHeelllloo  WWoorrlldd"
+// * "1234!_ "     -> "11223344!!__  "
+// Good Luck!
+function doubleChar(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    result += str[i] + str[i];
+  }
+  return result;
+}
+// You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+
+// Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+
+// For example, when the input is green, output should be yellow.
+function updateLight(current) {
+  if (current === "green") {
+    return "yellow";
+  } else if (current === "yellow") {
+    return "red";
+  } else if (current === "red") {
+    return "green";
+  }
+}
+// You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+
+// Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+
+// []                                -->  "no one likes this"
+// ["Peter"]                         -->  "Peter likes this"
+// ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+// ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+// ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+// Note: For 4 or more names, the number in "and 2 others" simply increases.
+function likes(names) {
+  if (names.length === 0) {
+    return "no one likes this";
+  } else if (names.length === 1) {
+    return `${names[0]} likes this`;
+  } else if (names.length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  } else if (names.length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  } else {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+  }
+}
