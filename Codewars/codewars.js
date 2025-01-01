@@ -861,3 +861,78 @@ function likes(names) {
     return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
   }
 }
+// Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+// Examples:
+// Input: 42145 Output: 54421
+// Input: 145263 Output: 654321
+// Input: 123456789 Output: 987654321
+function descendingOrder(n) {
+  return Number(
+    String(n)
+      .split("")
+      .sort((a, b) => b - a)
+      .join("")
+  );
+}
+// Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+// Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+function lovefunc(flower1, flower2) {
+  return flower1 % 2 !== flower2 % 2;
+}
+// Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+// Note: a and b are not ordered!
+
+// Examples (a, b) --> output (explanation)
+// (1, 0) --> 1 (1 + 0 = 1)
+// (1, 2) --> 3 (1 + 2 = 3)
+// (0, 1) --> 1 (0 + 1 = 1)
+// (1, 1) --> 1 (1 since both are same)
+// (-1, 0) --> -1 (-1 + 0 = -1)
+// (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+function getSum(a, b) {
+  if (a === b) {
+    return a;
+  }
+
+  return a < b ? a + getSum(a + 1, b) : b + getSum(b + 1, a);
+}
+// Create a function finalGrade, which calculates the final grade of a student depending on two parameters: a grade for the exam and a number of completed projects.
+
+// This function should take two arguments: exam - grade for exam (from 0 to 100); projects - number of completed projects (from 0 and above);
+
+// This function should return a number (final grade). There are four types of final grades:
+
+// 100, if a grade for the exam is more than 90 or if a number of completed projects more than 10.
+// 90, if a grade for the exam is more than 75 and if a number of completed projects is minimum 5.
+// 75, if a grade for the exam is more than 50 and if a number of completed projects is minimum 2.
+// 0, in other cases
+// Examples(Inputs-->Output):
+
+// 100, 12 --> 100
+// 99, 0 --> 100
+// 10, 15 --> 100
+
+// 85, 5 --> 90
+
+// 55, 3 --> 75
+
+// 55, 0 --> 0
+// 20, 2 --> 0
+// *Use Comparison and Logical Operators.
+function finalGrade(exam, projects) {
+  if (exam > 90 || projects > 10) {
+    return 100;
+  } else if (exam > 75 && projects >= 5) {
+    return 90;
+  } else if (exam > 50 && projects >= 2) {
+    return 75;
+  } else {
+    return 0;
+  }
+}
+// Now you have to write a function that takes an argument and returns the square of it.
+function square(arg) {
+  return arg * arg;
+}
