@@ -936,3 +936,51 @@ function finalGrade(exam, projects) {
 function square(arg) {
   return arg * arg;
 }
+// Write a function to split a string and convert it into an array of words.
+
+// Examples (Input ==> Output):
+// "Robin Singh" ==> ["Robin", "Singh"]
+function stringToArray(string) {
+  return string.split(" ");
+}
+// Task:
+// Given a list of integers, determine whether the sum of its elements is odd or even.
+
+// Give your answer as a string matching "odd" or "even".
+
+// If the input array is empty consider it as: [0] (array with a zero).
+function oddOrEven(array) {
+  const sum = array.reduce((acc, num) => acc + num, 0);
+  return sum % 2 === 0 ? "even" : "odd";
+}
+// Description
+// We need a function that can transform a string into a number. What ways of achieving this do you know?
+
+// Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
+
+// Examples
+// "1234" --> 1234
+// "605"  --> 605
+const stringToNumber = function (str) {
+  return +str;
+};
+// Повна функція saleHotdogs/ SaleHotDogs/ sale_hotdogs, функція приймає 1 параметр: n, n — кількість хот-догів, які придбає клієнт, різні числа мають різні ціни (див. наступну таблицю), повертає, скільки грошей клієнт витратить, щоб купити цю кількість хот-догів.
+
+// кількість хот-догів	ціна за одиницю (центи)
+// n < 5	100
+// n >= 5 і n < 10	95
+// n >= 10	90
+// Ви можете використовувати if..else або тернарний оператор, щоб завершити його.
+function saleHotdogs(n) {
+  return n < 5 ? n * 100 : n < 10 ? n * 95 : n * 90;
+}
+// Write a function that removes the spaces from the string, then return the resultant string.
+
+// Examples (Input -> Output):
+
+// "8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+// "8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+// "8aaaaa dddd r     " -> "8aaaaaddddr"
+function noSpace(x) {
+  return x.split(" ").join("");
+}
