@@ -984,3 +984,20 @@ function saleHotdogs(n) {
 function noSpace(x) {
   return x.split(" ").join("");
 }
+// In this kata you will create a function that takes in a list and returns a list with the reverse order.
+
+// Examples (Input -> Output)
+// * [1, 2, 3, 4]  -> [4, 3, 2, 1]
+// * [9, 2, 0, 7]  -> [7, 0, 2, 9]
+function reverseList(list) {
+  return list.reverse();
+}
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+// Examples:
+
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+function solution(str, ending) {
+  return str.endsWith(ending);
+}
