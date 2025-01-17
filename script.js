@@ -9,5 +9,5 @@ import * as Context from "./Trello Tasks/contextThis.js";
 import * as EventHandl from "./Trello Tasks/eventHandling.js";
 import * as FetchApi from "./Trello Tasks/fetchApi.js";
 import * as LocalStorage from "./Trello Tasks/localStorage.js";
-import * as Patterns from "./Trello Tasks/patterns.js";
 import * as Prototypes from "./Trello Tasks/prototypes.js";
+import * as DOM from "./Trello Tasks/domManipulation.js";
