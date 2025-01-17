@@ -1,0 +1,86 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 350px;
+  padding: 15px;
+  gap: 15px;
+}
+
+.form input {
+  line-height: 30px;
+  width: 100%;
+}
+
+.error {
+  display: none;
+  color: red;
+  margin-bottom: 10px;
+}
+
+.hint {
+  color: green;
+  display: none;
+  margin-bottom: 10px;
+}
+
+.btn {
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.valid {
+  border: 2px solid green;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+.galerry {
+  border: 2px solid grey;
+  width: 250px;
+  margin-top: 30px;
+  padding: 25px;
+}
+.galerry__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lightbox {
+  position: absolute;
+  z-index: 1;
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden-content {
+  display: none;
+}
+.galerry__container {
+  display: flex;
+  border: 2px solid gray;
+  width: 100%;
+  padding: 20px;
+  margin-top: 30px;
+}
+li,
+a {
+  list-style: none;
+  font-size: 25px;
+}
+.galerry__item {
+  display: flex;
+  flex-direction: column;
+}
+.galerry__img {
+  border: 1px solid burlywood;
+}
+.galerry__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  cursor: pointer;
+}
