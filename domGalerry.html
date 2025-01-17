@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="galerry">
+      <form action="submit" class="galerry__form">
+        <input
+          type="url"
+          required
+          placeholder="URL"
+          class="galerry__input"
+          name="url"
+        />
+        <input
+          type="text"
+          name="description"
+          required
+          class="galerry__description"
+        />
+        <button class="galerry__btn">Add image</button>
+      </form>
+    </div>
+
+    <ul class="galerry__list"></ul>
+
+    <div class="lightbox hidden-content">
+      <button class="prev">&#10094;</button>
+      <img src="" alt="" class="lightbox__img" />
+      <button class="next">&#10095;</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <script src="Trello Tasks/domManipulation.js"></script>
+  </body>
+</html>
