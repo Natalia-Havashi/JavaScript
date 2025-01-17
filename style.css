@@ -1,3 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -37,50 +57,75 @@
   border: 2px solid red;
 }
 
-.galerry {
-  border: 2px solid grey;
-  width: 250px;
-  margin-top: 30px;
-  padding: 25px;
-}
-.galerry__form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.lightbox {
-  position: absolute;
-  z-index: 1;
-  background-color: aqua;
-  width: 100%;
-  height: 100%;
-}
+/* GALERRY */
 
-.hidden-content {
-  display: none;
+.imageForm {
+  margin: 20px 0;
 }
-.galerry__container {
-  display: flex;
-  border: 2px solid gray;
-  width: 100%;
-  padding: 20px;
-  margin-top: 30px;
+.imageUrl {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
 }
-li,
-a {
-  list-style: none;
-  font-size: 25px;
+.imageDescription {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
 }
-.galerry__item {
-  display: flex;
-  flex-direction: column;
+.btnAdd {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
 }
-.galerry__img {
-  border: 1px solid burlywood;
-}
-.galerry__list {
+.galerry {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.galerry img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+.lightboxImage {
+  max-width: 80%;
+  height: 80%;
+  margin-bottom: 20px;
+}
+.lightboxDescription {
+  color: white;
+  margin-bottom: 20px;
+}
+.prevImage,
+.nextImage {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px;
   cursor: pointer;
 }

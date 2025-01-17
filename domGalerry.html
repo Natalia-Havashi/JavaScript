@@ -3,41 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
-    />
-    <link rel="stylesheet" href="/style.css" />
+    <title>Галерея зображень</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="galerry">
-      <form action="submit" class="galerry__form">
-        <input
-          type="url"
-          required
-          placeholder="URL"
-          class="galerry__input"
-          name="url"
-        />
-        <input
-          type="text"
-          name="description"
-          required
-          class="galerry__description"
-        />
-        <button class="galerry__btn">Add image</button>
-      </form>
-    </div>
+    <h1>Галерея зображень</h1>
+    <form action="#" class="imageForm">
+      <input type="text" placeholder="URL зоюраження" class="imageUrl" />
+      <input
+        type="text"
+        placeholder="Опис зображення"
+        class="imageDescription"
+      />
+      <button type="submit" class="btnAdd">Додати зображення</button>
+    </form>
 
-    <ul class="galerry__list"></ul>
+    <div class="galerry"></div>
 
-    <div class="lightbox hidden-content">
-      <button class="prev">&#10094;</button>
-      <img src="" alt="" class="lightbox__img" />
-      <button class="next">&#10095;</button>
+    <div class="lightbox">
+      <span class="close">&times;</span>
+      <button class="prevImage">&lt;</button>
+      <img src="" alt="Велике зображення" class="lightboxImage" />
+      <button class="nextImage">&gt;</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
-    <script src="Trello Tasks/domManipulation.js"></script>
+    <script type="module" src="Trello Tasks/domManipulation.js"></script>
   </body>
 </html>
