@@ -7,6 +7,25 @@ const elements = {
 };
 
 // Валідація полів форми при натисканні кнопки "Submit".
+const validationRules = {
+  inputName: {
+    validate: (value) => value.length >= 2,
+    errorMessage: "Ім'я має містити щонайменше 2 символи!",
+    hint: "Ім'я має бути не менше 2 символів.",
+  },
+  inputEmail: {
+    validate: (value) =>
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
+    errorMessage: "Некоректний формат емейлу!",
+    hint: "Приклад: name@example.com",
+  },
+  inputPassword: {
+    validate: (value) => value.length >= 8,
+    errorMessage: "Пароль має бути мінімум 8 символів",
+    hint: "Пароль має містити щонайменше 8 символів.",
+  },
+};
+
 elements.form.addEventListener("submit", handleSubmit);
 
 function handleSubmit(e) {
@@ -61,58 +80,27 @@ function removeHint(input) {
   hintSpan.style.display = "none";
 }
 
-// Відправка даних форми за допомогою події submit, якщо всі поля пройшли валідацію.
 function validationForm(input) {
+  const rule = validationRules[input.classList[0]];
+  if (!rule) return true;
+
   const value = input.value.trim();
-
-  if (input.classList.contains("inputName")) {
-    if (value === "") {
-      showError(input, "Веддіть імя!");
-      return false;
-    } else if (value.length < 2) {
-      showError(input, "Імя має містити щонайменше 2 символи!");
-      return false;
-    }
-  }
-
-  if (input.classList.contains("inputEmail")) {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (value === "") {
-      showError(input, "Ведіть електрону адресу");
-      return false;
-    } else if (!emailRegex.test(value)) {
-      showError(input, "Некоректний формат емайлу");
-      return false;
-    }
-  }
-
-  if (input.classList.contains("inputPassword")) {
-    if (value === "") {
-      showError(input, "Веддіть пароль");
-      return false;
-    } else if (value.length < 8) {
-      showError(input, "Пароль має бути мінімум 8 символів");
-      return false;
-    }
+  if (!rule.validate(value)) {
+    showError(input, rule.errorMessage);
+    return false;
   }
 
   removeError(input);
   return true;
 }
-// Вимоги:
 
-// Використовуйте події focus, blur, input та submit для управління взаємодією користувача.
-// Забезпечте динамічну валідацію даних в полях форми.
 elements.inputs.forEach((input) => {
   input.addEventListener("input", () => validationForm(input));
 
   input.addEventListener("focus", () => {
-    if (input.classList.contains("inputName")) {
-      showHint(input, "Ім'я має бути не менше 2 символів.");
-    } else if (input.classList.contains("inputEmail")) {
-      showHint(input, "Приклад: name@example.com");
-    } else if (input.classList.contains("inputPassword")) {
-      showHint(input, "Пароль має містити щонайменше 8 символів.");
+    const rule = validationRules[input.classList[0]];
+    if (rule) {
+      showHint(input, rule.hint);
     }
   });
 
@@ -121,5 +109,3 @@ elements.inputs.forEach((input) => {
     validationForm(input);
   });
 });
-
-// Відображайте та приховуйте повідомлення про помилки та підказки залежно від взаємодії користувача.
