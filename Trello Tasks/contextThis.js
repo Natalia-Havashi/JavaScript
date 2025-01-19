@@ -42,13 +42,13 @@ class Hotel {
 }
 
 const hotel = new Hotel();
-hotel.createRoom(17);
-hotel.createRoom(25);
-hotel.createRoom(19);
-hotel.createRoom(110);
+// hotel.createRoom(17);
+// hotel.createRoom(25);
+// hotel.createRoom(19);
+// hotel.createRoom(110);
 
-hotel.bookRoom(25);
-hotel.bookRoom(115);
-hotel.bookRoom(19);
+// hotel.bookRoom(25);
+// hotel.bookRoom(115);
+// hotel.bookRoom(19);
 
-hotel.getBookedRooms();
+// hotel.getBookedRooms();
