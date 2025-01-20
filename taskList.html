@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-task">
+      <h1>Task list</h1>
+      <div class="box-form">
+        <form action="#" class="formTask">
+          <input type="text" class="inputTask" placeholder="Task..." />
+          <button type="button" class="btnAddTask">Додати завдання</button>
+        </form>
+      </div>
+      <div class="filter-box">
+        <p class="filter-text">Фільтр:</p>
+        <select class="task-filter" id="filter">
+          <option value="all">Всі</option>
+          <option value="completed">Виконані</option>
+          <option value="not-completed">Не виконані</option>
+        </select>
+      </div>
+      <div class="task">
+        <ul class="list"></ul>
+      </div>
+    </div>
+    <script type="module" src="Trello Tasks/taskList.js"></script>
+  </body>
+</html>
