@@ -282,3 +282,126 @@ a {
   background-color: #f9f9f9;
   font-size: 16px;
 }
+
+/* Contacts Book */
+.container-book {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.box-name,
+.box-number {
+  display: flex;
+  flex-direction: column;
+}
+.form-book {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.contact-name {
+  line-height: 25px;
+  padding: 3px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.contact-tel {
+  line-height: 25px;
+  padding: 3px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.btnAddContact {
+  background-color: green;
+  border: 2px solid white;
+  color: white;
+  width: 200px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 8px;
+}
+.search-contact {
+  width: 100%;
+}
+.contact-list-box {
+  width: 100%;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  list-style-type: none;
+  padding: 0;
+}
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.input-search {
+  line-height: 25px;
+  padding: 3px;
+  margin-top: 5px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.btnEditContact,
+.btnDeleteContact {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btnEditContact {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btnDeleteContact {
+  background-color: #f44336;
+  color: white;
+}
+.btnAddContact:hover,
+.btnEditContact:hover,
+.btnDeleteContact:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+.btnAddContact:active,
+.btnEditContact:active,
+.btnDeleteContact:active {
+  opacity: 0.9;
+  transform: scale(1);
+}
+.name,
+.number {
+  margin: 0;
+  font-size: 16px;
+}
+
+.contact .actions {
+  display: flex;
+  gap: 10px;
+}
+.contact > .info {
+  flex-grow: 1;
+}

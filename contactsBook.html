@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts Book</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-book">
+      <h1>Контактна книга</h1>
+      <div class="contact-form">
+        <form action="#" class="form-book">
+          <div class="box-name">
+            <label>І'мя</label>
+            <input
+              type="text"
+              class="contact-name"
+              placeholder="Name"
+              pattern="[a-zA-Zа-яА-ЯёЁїЇіІєЄґҐ\s0-9]+"
+              required
+            />
+          </div>
+          <div class="box-number">
+            <label>Номер</label>
+            <input
+              type="tel"
+              class="contact-tel"
+              placeholder="Number"
+              pattern="[0-9+\-\(\)\s]+"
+              required
+            />
+          </div>
+          <button class="btnAddContact" type="submit">Додати контакт</button>
+        </form>
+      </div>
+      <div class="search-contact">
+        <p>Знайти контакт</p>
+        <input type="text" class="input-search" placeholder="Search..." />
+      </div>
+      <div class="contact-list-box">
+        <h3>Контакти</h3>
+        <ul class="contact-list"></ul>
+      </div>
+    </div>
+    <script type="module" src="Trello Tasks/contactsBook.js"></script>
+  </body>
+</html>
