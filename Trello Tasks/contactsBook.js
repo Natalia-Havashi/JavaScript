@@ -27,7 +27,6 @@ elements.form.addEventListener("submit", (e) => {
     contacts.push(newContact);
 
     renderContacts();
-    console.log(contacts);
 
     elements.inputName.value = "";
     elements.inputNumber.value = "";
@@ -36,6 +35,7 @@ elements.form.addEventListener("submit", (e) => {
 
 function renderContacts() {
   elements.listContact.innerHTML = "";
+  localStorage.setItem("contacts", JSON.stringify(contacts));
   if (contacts.length === 0) {
     const emptyMessage = document.createElement("p");
     emptyMessage.textContent = "Контактів немає";
@@ -81,8 +81,6 @@ function renderContacts() {
 
     elements.listContact.appendChild(li);
   });
-
-  localStorage.setItem("contacts", JSON.stringify(contacts));
 }
 
 elements.listContact.addEventListener("click", handleDeleteContact);
