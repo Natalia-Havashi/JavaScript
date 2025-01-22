@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment system</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-comments">
+      <div class="comment-form-box">
+        <h2 class="title-comment">Залишити відгук</h2>
+        <form action="#" class="formComment">
+          <div class="form-row">
+            <input
+              type="text"
+              placeholder="Ваше ім'я"
+              required
+              class="commentName"
+            />
+          </div>
+          <textarea placeholder="Ваш коментар" class="textarea"></textarea>
+          <div class="form-actions">
+            <button type="submit" class="btnAddComment">
+              Залишити коментар
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="commnet-box">
+        <h2>Коментарі</h2>
+        <div>
+          <ul class="comment-list">
+            <li class="comment-item">
+              <!-- <div class="comment">
+                <strong>Max</strong>
+                <span>21.01.2025</span>
+              </div>
+              <p>Cool!</p> -->
+              <button class="toggle-replies">Показати відповіді ▼</button>
+              <ul class="replies hidden">
+                <li class="reply">
+                  <div class="comment">
+                    <strong>Irina</strong>
+                    <span>21.05.2025</span>
+                  </div>
+                  <p>Thank you with your comment</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="Trello Tasks/commentSystem.js"></script>
+  </body>
+</html>
