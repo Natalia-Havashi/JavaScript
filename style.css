@@ -410,7 +410,6 @@ a {
 .container-comments {
   margin: 0 auto;
   background-color: antiquewhite;
-  height: 100vh;
   padding: 20px;
 }
 
@@ -497,4 +496,35 @@ a {
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.boxBtnComment {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 15px;
+}
+.btnDeleteComment {
+  background-color: #c70000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnDeleteComment:hover {
+  background-color: #a50000;
+}
+
+.btnAnswerComment {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-replies-box {
+  display: none;
 }

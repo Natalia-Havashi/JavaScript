@@ -19,7 +19,9 @@
               class="commentName"
             />
           </div>
+
           <textarea placeholder="Ваш коментар" class="textarea"></textarea>
+
           <div class="form-actions">
             <button type="submit" class="btnAddComment">
               Залишити коментар
@@ -27,30 +29,23 @@
           </div>
         </form>
       </div>
+
       <div class="commnet-box">
         <h2>Коментарі</h2>
         <div>
-          <ul class="comment-list">
-            <li class="comment-item">
-              <!-- <div class="comment">
-                <strong>Max</strong>
-                <span>21.01.2025</span>
-              </div>
-              <p>Cool!</p> -->
-              <button class="toggle-replies">Показати відповіді ▼</button>
-              <ul class="replies hidden">
-                <li class="reply">
-                  <div class="comment">
-                    <strong>Irina</strong>
-                    <span>21.05.2025</span>
-                  </div>
-                  <p>Thank you with your comment</p>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <ul class="comment-list"></ul>
         </div>
       </div>
+    </div>
+
+    <div class="form-replies-box">
+      <form action="#" class="form=replies">
+        <input type="text" class="commentName-replies" />
+        <textarea class="textarea-replies"></textarea>
+        <button type="submit" class="btnAddComment-replies">
+          Залишити відповідь
+        </button>
+      </form>
     </div>
     <script type="module" src="Trello Tasks/commentSystem.js"></script>
   </body>

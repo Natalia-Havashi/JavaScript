@@ -49,7 +49,6 @@ if (!localStorage.getItem("appState")) {
 }
 
 let appState = JSON.parse(localStorage.getItem("appState"));
-console.log(appState);
 
 applyTheme(appState.theme);
 

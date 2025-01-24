@@ -3,11 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/style.css" />
+    <title>Календар подій</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>CALENDAR</h1>
-    <script src="Trello Tasks/calendar.js"></script>
+    <h1>Календар</h1>
+    <div class="container-calendar">
+      <div class="calendar">
+        <div class="calendar-header">
+          <button class="prevBtn">-</button>
+          <div class="data"></div>
+          <button class="nextBtn">+</button>
+        </div>
+        <div class="calendar-day"></div>
+      </div>
+
+      <div class="container-event">
+        <h2>Події</h2>
+        <ul class="event-list"></ul>
+      </div>
+
+      <div class="event-form">
+        <input type="text" class="eventInput" />
+        <button class="addEventBtn">Додати подію</button>
+      </div>
+    </div>
+    <script type="module" src="Trello Tasks/calendar.js"></script>
   </body>
 </html>
