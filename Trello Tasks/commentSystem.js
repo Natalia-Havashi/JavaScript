@@ -3,7 +3,6 @@ const elements = {
   commentName: document.querySelector(".commentName"),
   textarea: document.querySelector(".textarea"),
   commentList: document.querySelector(".comment-list"),
-  formRepliesBox: document.querySelector(".form-replies-box"),
 };
 
 let comments = [];
@@ -37,6 +36,7 @@ function handleSubmit(e) {
   }
 }
 
+// Рендер
 function renderComments() {
   elements.commentList.innerHTML = "";
   localStorage.setItem("comments", JSON.stringify(comments));
@@ -96,8 +96,8 @@ function renderComments() {
         const replyDiv = document.createElement("div");
         replyDiv.classList.add("comment");
 
-        const replyStrong = document.createElement("span");
-        renderComments.textContent = `${reply.name}`;
+        const replyStrong = document.createElement("strong");
+        replyStrong.textContent = `${reply.name}`;
 
         const replySpan = document.createElement("span");
         replySpan.textContent = `${reply.date}`;
@@ -113,15 +113,59 @@ function renderComments() {
         repliesList.appendChild(replyItem);
       });
       li.appendChild(repliesList);
+
+      const toggleRepliesBtn = document.createElement("button");
+      toggleRepliesBtn.textContent = `Показати відповіді (Відповідей: ${replies.length})`;
+      toggleRepliesBtn.classList.add("toggleRepliesBtn");
+
+      toggleRepliesBtn.addEventListener("click", () => {
+        repliesList.classList.toggle("visible");
+        toggleRepliesBtn.textContent = repliesList.classList.contains("visible")
+          ? `Сховати відповіді (Відповідей: ${replies.length})`
+          : `Показати відповіді (Відповідей: ${replies.length})`;
+      });
+
+      li.appendChild(toggleRepliesBtn);
     }
 
     elements.commentList.appendChild(li);
   });
 }
+
 // Відповіді на коментарі (вкладені коментарі).
+function handleReplyComment(e) {
+  const index = e.target.closest(".comment-item").dataset.index;
+  const replyForm = document.createElement("form");
+  replyForm.classList.add("reply-form");
+  replyForm.innerHTML = `<input type="text" class="commentName-replies" placeholder="Ваше ім'я" required/>
+    <textarea class="textarea-replies" required placeholder="Ваша відповідь"></textarea>
+    <button type="submit" class="btnAddComment-replies">Залишити відповідь</button>`;
 
+  const commentItem = e.target.closest(".comment-item");
+  commentItem.appendChild(replyForm);
+
+  replyForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const replyName = replyForm
+      .querySelector(".commentName-replies")
+      .value.trim();
+    const replyText = replyForm.querySelector(".textarea-replies").value.trim();
+
+    if (replyName && replyText) {
+      const reply = {
+        name: replyName,
+        comment: replyText,
+        date: new Date().toLocaleString(),
+      };
+      comments[index].replies.push(reply);
+      renderComments();
+    }
+  });
+}
+
+// Видалення коментарів
 elements.commentList.addEventListener("click", handleDeleteComment);
-
 function handleDeleteComment(e) {
   if (
     e.target.tagName === "BUTTON" &&
@@ -134,18 +178,6 @@ function handleDeleteComment(e) {
     e.target.tagName === "BUTTON" &&
     e.target.classList.contains("btnAnswerComment")
   ) {
-    const replyForm = e.target
-      .closest(".comment-item")
-      .querySelector(".form-replies-box");
-    replyForm.style.display = "block";
+    handleReplyComment(e);
   }
 }
-// Відображення часу додавання коментаря.
-
-// Вимоги:
-
-// Забезпечте динамічне оновлення списку коментарів при додаванні, відповіді та видаленні.
-
-// Підказка:
-
-// Створіть структуру системи коментарів з використанням HTML-елементів ul та li. Додайте форми для додавання та відповіді на коментарі, а також кнопку для видалення коментарів.
